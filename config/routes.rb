@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'chat/index', to: "chat#shoe"
-  root "chat#show"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'chat', to: "chat#index"
+  resources :messages, only: [:new, :create]
 end

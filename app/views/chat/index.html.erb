@@ -1,10 +1,14 @@
 <h1>Chat</h1>
 
 <div id="chat-container">
-<%= render @messages %>
+<ul id="message-list">
+<% @messages.each do |message| %>
+    <li><%= message.content %></li>
+<% end %>
+</ul>
 </div>
 <hr>
 <%= form_with model: @message, html: {class: "message-form"} do |f| %>
-<%= f.text_field :"message-input" %>
+<%= f.text_field :content, class:'message-input' %>
 <%= f.submit "Send message!", class: "send-button" %>
 <% end %>
