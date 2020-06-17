@@ -18,9 +18,11 @@ consumer.subscriptions.create("RoomChannel", {
 
 function addMessage(message) {
   const messageList = document.getElementById("message-list");
+  const containerDiv = document.getElementById("chat-container");
   let newComment = document.createElement("li");
   const messageInput = document.getElementsByClassName("message-input")[0];
-  messageInput.value = '';
   newComment.innerText = message.content;
   messageList.appendChild(newComment);
+  messageInput.value = '';
+  containerDiv.scrollTop = containerDiv.scrollHeight;
 }
